@@ -1,0 +1,42 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Buy Now{% endblock title %}
+{% block main-content %}
+<div class="container">
+ <div class="row mt-5">
+  <div class="col-sm-6">
+    <h4>Order Summary</h4>
+    <hr>
+      <div class="card mb-2">
+        <div class="card-body">
+          <h5>Product: Product 1</h5>
+          <p>Quantity: 2</p>
+          <p class="fw-bold">Price: 100.00</p>
+        </div>
+      </div>
+    <small><b>Terms and Condition:</b> Welcome to Shoppingly X! By using our website, you agree to the following terms: Provide accurate account details and secure your credentials. Product details, prices, and availability may change without notice. Payments must be made using approved methods, and transactions are secure. Shipping times are estimates; please ensure accurate address details. Refer to our return/refund policy for returns. Website content is protected and must not be used without authorization. We are not responsible for indirect or consequential damages. For information on data use, see our privacy policy. These terms are governed by the laws of India.
+    </br>For questions, contact us at <u>harshknowtech@gmail.com.</u></small>
+  </div>
+  <div class="col-sm-4 offset-sm-1">
+    <h4>Select Shipping Address</h4>
+    <hr>
+    <form action="">
+      <div class="card">
+        <div class="card-body">
+        <h5>Harsh Jain</h5>
+        <p>Khurai, Sagar, MadhyaPradesh 470117</p>
+        </div>
+      </div>
+        <div class="form-check mt-2 mb-5">
+          <input class="form-check-input" type="radio" value="">
+          <label class="form-check-label fw-bold" for="">
+            Address: 1 </label>
+        </div>
+        <div class="text-end">
+          <button type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Continue</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock main-content %}
