@@ -1,3 +1,4 @@
+import os
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator, MinValueValidator
@@ -62,6 +63,31 @@ CATEGORY_CHOICES = (
 )
 
 
+def product_image_upload_path(instance, filename):
+    # Map the category code to folder names
+    category_folder = {
+        'M': 'mobile',
+        'L': 'laptop',
+        'TW': 'top_wear',
+        'BW': 'bottom_wear',
+        'AC': 'accessories',
+        'EL': 'electronics',
+        'HD': 'home_decor',
+        'FT': 'footwear',
+        'BG': 'bags',
+        'BT': 'beauty_products',
+    }.get(instance.category, 'other')  # Default to 'other' if no match
+
+    # Construct the folder path for the category
+    base_dir = f"ProductImg/{category_folder}"
+
+    # Ensure the folder exists
+    os.makedirs(base_dir, exist_ok=True)
+
+    # Return the original filename without any changes
+    return os.path.join(base_dir, filename)
+
+
 class Product(models.Model):
     title = models.CharField(max_length=100)
     selling_price = models.FloatField()
@@ -69,7 +95,7 @@ class Product(models.Model):
     description = models.TextField()
     brand = models.CharField(max_length=50)
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=2)
-    product_image = models.ImageField(upload_to='ProductImg')
+    product_image = models.ImageField(upload_to=product_image_upload_path)
 
 
 def __str__(self):
