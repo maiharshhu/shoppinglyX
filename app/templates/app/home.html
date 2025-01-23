@@ -50,7 +50,7 @@
  <!-- Slider 1 -->
  <div class="owl-carousel" id="slider1">
   {% for mob in mobiles %}
-  <a href="{% url 'product-detail' %}" class="btn"><div class="item"><img src="{{mob.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{mob.title}}</span><br><span class="fs-5"><div><strike>Rs.{{mob.selling_price}}</strike></div>Rs.{{mob.discounted_price}}</span></div></a>
+  <a href="{% url 'product-detail' mob.id %}" class="btn"><div class="item"><img src="{{mob.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{mob.title}}</span><br><span class="fs-5"><div><strike>Rs.{{mob.selling_price}}</strike></div>Rs.{{mob.discounted_price}}</span></div></a>
   {% endfor %}
  </div>
 </div>
@@ -97,7 +97,7 @@
  <!-- Slider 2 -->
  <div class="owl-carousel" id="slider2">
   {% for tw in topwears %}
-  <a href="{% url 'product-detail' %}" class="btn"><div class="item"><img src="{{tw.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{tw.title}}</span><br><span class="fs-5"><div><strike>Rs.{{tw.selling_price}}</strike></div>Rs.{{tw.discounted_price}}</span></div></a>
+  <a href="{% url 'product-detail' tw.id %}" class="btn"><div class="item"><img src="{{tw.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{tw.title}}</span><br><span class="fs-5"><div><strike>Rs.{{tw.selling_price}}</strike></div>Rs.{{tw.discounted_price}}</span></div></a>
   {% endfor %}
  </div>
 </div>
@@ -107,9 +107,9 @@
 <div class="m-3">
   <h2>Bottomwear</h2>
   <!-- Slider 3 -->
-  <div class="owl-carousel" id="slider1">
+  <div class="owl-carousel" id="slider3">
     {% for bw in bottomwears %}
-    <a href="{% url 'product-detail' %}" class="btn"><div class="item"><img src="{{bw.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{bw.title}}</span><br><span class="fs-5"><div><strike>Rs.{{bw.selling_price}}</strike></div>Rs.{{bw.discounted_price}}</span></div></a>
+    <a href="{% url 'product-detail' bw.id %}" class="btn"><div class="item"><img src="{{bw.product_image.url}}" alt="" height="200px"><span class="fw-bold">{{bw.title}}</span><br><span class="fs-5"><div><strike>Rs.{{bw.selling_price}}</strike></div>Rs.{{bw.discounted_price}}ID:{{bw.id}} </span></div></a>
     {% endfor %}
   </div>
 </div>
